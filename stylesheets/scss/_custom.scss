@@ -1,0 +1,97 @@
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f2a251;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background:  #f0733e;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track:hover, ::-webkit-scrollbar-track:active {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-track {
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+//---------------------------------------------------------------------------------------------
+
+.btn {
+  cursor: pointer; 
+}
+
+table {
+  width: 100% !important;
+}
+
+// p {
+//   overflow: hidden;
+//   display: -webkit-box;
+//   -webkit-box-orient: vertical;
+//   -webkit-line-clamp: 3;
+// }
+
+// 層級
+$zindex: (
+  header    : 6000,
+  modal     : 9000, 
+  overlay   : 8000,
+  dropdown  : 7000,
+  footer    : 5000
+);
+
+.header {
+  z-index: map-get($zindex, header);
+}
+
+@each $name in right, left {
+  .radius-#{$name}-0 {
+    border-top-#{$name}-radius: 0;
+    border-bottom-#{$name}-radius: 0;
+    border-#{$name}: 0;  
+  }  
+}
+
+@mixin back-style($back-size)  {
+  $back-array: (position: center, repeat: no-repeat, size: $back-size);
+  @each $name, $item in $back-array {
+    background-#{$name}: #{$item};
+  }
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ver-reset {
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+    }
+}
