@@ -184,6 +184,21 @@ table {
   background: #f5f5f5; }
   .content .bmi_content h2 {
     font-size: 24px; }
+  .content .bmi_content .data_list {
+    background: #FFFFFF;
+    height: 62px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .content .bmi_content .data_list .bmi_color {
+      height: 100%;
+      width: 4px;
+      background: #86D73F;
+      -webkit-box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
+      box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29); }
 
 #footer {
   background: #FFD366;
