@@ -86,11 +86,21 @@
             height: 62px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            .status{
+                font-size: 20px;
+            }
             .bmi_color{
                 height: 100%;
                 width: 4px;
                 background: #86D73F;
                 box-shadow: 2px 0 3px 0 rgba(134,215,63,0.29);
+            }
+            h5,.date{
+                font-size: 12px;
+            }
+            span{
+                font-size: 20px;
             }
         }
     }

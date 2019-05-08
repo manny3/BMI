@@ -192,13 +192,22 @@ table {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between; }
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .content .bmi_content .data_list .status {
+      font-size: 20px; }
     .content .bmi_content .data_list .bmi_color {
       height: 100%;
       width: 4px;
       background: #86D73F;
       -webkit-box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
       box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29); }
+    .content .bmi_content .data_list h5, .content .bmi_content .data_list .date {
+      font-size: 12px; }
+    .content .bmi_content .data_list span {
+      font-size: 20px; }
 
 #footer {
   background: #FFD366;

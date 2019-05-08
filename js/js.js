@@ -1,8 +1,8 @@
 $(window).load(function(){
 
-    var btn = document.querySelector('.rbut');
+    var btn = document.querySelector('.resultBtn');
     var now = new Date();
-    var totalresult = JSON.parse(localStorage.getItem('BMIlist')) || [];
+    var totalresult = JSON.parse(localStorage.getItem('data_list')) || [];
     var listrecord = document.querySelector('.listrecord');
     var cotestop = document.querySelector('.cotestop');
     var cotes = document.querySelector('.cotes');
@@ -26,6 +26,7 @@ $(window).load(function(){
         //判斷是否有輸入身高體重數值，並算出BMI
         if (heightrs !== "" && weightrs !== "") {
             BMI = (parseFloat(weightrs) / parseFloat(Math.pow((heightrs / 100), 2))).toFixed(1);
+            console.log(BMI)
         } else {
             alert("請輸入身高或體重");
             return
