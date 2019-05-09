@@ -43,8 +43,9 @@
         border-radius: 50%;
         position: relative;
         display: none;
+        color:#86D73F;
         .result_content{
-            color:#86D73F;
+            
             text-align: center;
             position: absolute;
             top:50%;
@@ -71,6 +72,12 @@
             display: flex;
             justify-content: center;
             align-content: center;
+            cursor: pointer;
+        }
+        h1 {
+            right: -125%;
+            position: absolute;
+            top: 10%;
         }
     }
     
@@ -81,7 +88,7 @@
         h2 {
             font-size: 24px;
         }
-        .data_list {
+        .data_item {
             background: #FFFFFF;
             height: 62px;
             display: flex;
@@ -101,6 +108,7 @@
             }
             span{
                 font-size: 20px;
+                margin-left: 0.5rem;
             }
         }
     }

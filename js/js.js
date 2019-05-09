@@ -3,10 +3,10 @@ $(window).load(function(){
     var btn = document.querySelector('.resultBtn');
     var now = new Date();
     var totalresult = JSON.parse(localStorage.getItem('data_list')) || [];
-    var listrecord = document.querySelector('.listrecord');
-    var cotestop = document.querySelector('.cotestop');
-    var cotes = document.querySelector('.cotes');
-    var imgss = document.querySelector('.imgss');
+    var listrecord = document.querySelector('.data_list');
+    var result = document.querySelector('.result');
+    var result_content = document.querySelector('.result_content');
+    var imgss = document.querySelector('.result_img');
     var refresh = document.querySelector('.refresh');
     var BMI = 0;
     var obesity = '';
@@ -82,7 +82,20 @@ $(window).load(function(){
         var str = '';
         var len = totalresult.length;
         for (i = len - 1; i >= 0; i--) {
-            str += '<div class="boxcolor" id=' + totalresult[i].grade + '></div><li><table><tr><td>' + totalresult[i].obesity + '</td><td><span>BMI</span>' + totalresult[i].BMI + '</td><td><span>weight</span>' + totalresult[i].weight + 'KG</td><td><span>height</span>' + totalresult[i].height + 'cm</td><td><span>' + totalresult[i].nowtime + '</span></td></tr></table></li>';
+            // str += '<div class="boxcolor" id=' + totalresult[i].grade + 
+            // '></div><li><table><tr><td>' + totalresult[i].obesity + 
+            // '</td><td><span>BMI</span>' + totalresult[i].BMI + 
+            // '</td><td><span>weight</span>' + totalresult[i].weight + 
+            // 'KG</td><td><span>height</span>' + totalresult[i].height + 
+            // 'cm</td><td><span>' + totalresult[i].nowtime + 
+            // '</span></td></tr></table></li>';
+            str += '<div class="data_item" data-num='+ i +
+            '><div class="bmi_color"></div><div class="status">' + totalresult[i].obesity + 
+            '</div><div><h5>BMI<span class="_bmi">' + totalresult[i].BMI + 
+            '</span></h5></div><div><h5>weight<span class="_weight">' + totalresult[i].weight + 
+            'kg</span></h5></div><div><h5>height<span class="_height">' + totalresult[i].height + 
+            'cm</span></h5></div><div class="date mr-3">' + totalresult[i].nowtime + 
+            '</div></div>';
         }
         listrecord.innerHTML = str;
     }
@@ -90,35 +103,35 @@ $(window).load(function(){
     //改結果按鈕
     function changebtn(todo) {
         btn.setAttribute('style', 'display:none');
-        cotestop.setAttribute('style', 'display:block');
         var str = '<p>' + BMI + '</p><p>BMI</p><p>' + obesity + '</p>';
+        var str = '<h3>'+ BMI + '</h3><p>BMI</p><h1 class="h1">' + obesity + '</h1>'
         switch (obesity) {
             case '過輕':
-                cotes.setAttribute('style', 'color:#31BAF9; border: 4px solid #31BAF9; ');
+                result.setAttribute('style', 'color:#31BAF9; border: 4px solid #31BAF9; display: block;');
                 imgss.setAttribute('style', 'background: #31BAF9');
                 break;
             case '理想':
-                cotes.setAttribute('style', 'color:#86D73F; border: 4px solid #86D73F;');
+                result.setAttribute('style', 'color:#86D73F; border: 4px solid #86D73F;  display: block;');
                 imgss.setAttribute('style', 'background: #86D73F');
                 break;
             case '過重':
-                cotes.setAttribute('style', 'color:#FF982D; border: 4px solid #FF982D;');
+                result.setAttribute('style', 'color:#FF982D; border: 4px solid #FF982D;  display: block;');
                 imgss.setAttribute('style', 'background: #FF982D');
                 break;
             case '輕度肥胖':
-                cotes.setAttribute('style', 'color:#FF6C03; border: 4px solid #FF6C03;');
+                result.setAttribute('style', 'color:#FF6C03; border: 4px solid #FF6C03;  display: block;');
                 imgss.setAttribute('style', 'background: #FF6C03');
                 break;
             case '中度肥胖':
-                cotes.setAttribute('style', 'color:#FF6C03; border: 4px solid #FF6C03;');
+                result.setAttribute('style', 'color:#FF6C03; border: 4px solid #FF6C03;  display: block;');
                 imgss.setAttribute('style', 'background: #FF6C03');
                 break;
             case '重度肥胖':
-                cotes.setAttribute('style', 'color:#FF1200; border: 4px solid #FF1200;');
+                result.setAttribute('style', 'color:#FF1200; border: 4px solid #FF1200;  display: block;');
                 imgss.setAttribute('style', 'background: #FF1200');
                 break;
         }
-        cotes.innerHTML = str;
+        result_content.innerHTML = str;
     }
     
     //重新整理
