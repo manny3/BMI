@@ -2,10 +2,11 @@ $(window).load(function(){
 
     var btn = document.querySelector('.resultBtn');
     var now = new Date();
-    var totalresult = JSON.parse(localStorage.getItem('data_list')) || [];
+    var totalresult = JSON.parse(localStorage.getItem('BMI_list')) || [];
     var listrecord = document.querySelector('.data_list');
     var result = document.querySelector('.result');
     var result_content = document.querySelector('.result_content');
+    var result_obesity = document.querySelector('.result_obesity');
     var imgss = document.querySelector('.result_img');
     var refresh = document.querySelector('.refresh');
     var BMI = 0;
@@ -15,7 +16,7 @@ $(window).load(function(){
     //監聽
     btn.addEventListener('click', saveBMI);
     imgss.addEventListener('click', re);
-    clearlist.addEventListener('click', deleteList);
+    // clearlist.addEventListener('click', deleteList);
     //第一次開瀏覽器取得舊資料
     updatelist(totalresult);
     
@@ -72,7 +73,7 @@ $(window).load(function(){
         // console.log(todo);
         //將陣列以JSON方式輸入至localstorage
         totalresult.push(todo);
-        localStorage.setItem('BMIlist', JSON.stringify(totalresult));
+        localStorage.setItem('BMI_list', JSON.stringify(totalresult));
         updatelist(totalresult);
         changebtn(todo);
     }
@@ -90,7 +91,8 @@ $(window).load(function(){
             // 'cm</td><td><span>' + totalresult[i].nowtime + 
             // '</span></td></tr></table></li>';
             str += '<div class="data_item" data-num='+ i +
-            '><div class="bmi_color"></div><div class="status">' + totalresult[i].obesity + 
+            '><div class="bmi_color ' + totalresult[i].grade + 
+            '"></div><div class="status">' + totalresult[i].obesity + 
             '</div><div><h5>BMI<span class="_bmi">' + totalresult[i].BMI + 
             '</span></h5></div><div><h5>weight<span class="_weight">' + totalresult[i].weight + 
             'kg</span></h5></div><div><h5>height<span class="_height">' + totalresult[i].height + 
@@ -98,13 +100,14 @@ $(window).load(function(){
             '</div></div>';
         }
         listrecord.innerHTML = str;
+        
     }
     
     //改結果按鈕
     function changebtn(todo) {
         btn.setAttribute('style', 'display:none');
-        var str = '<p>' + BMI + '</p><p>BMI</p><p>' + obesity + '</p>';
-        var str = '<h3>'+ BMI + '</h3><p>BMI</p><h1 class="h1">' + obesity + '</h1>'
+        // var str = '<p>' + BMI + '</p><p>BMI</p><p>' + obesity + '</p>';
+        var str = '<h3>'+ BMI + '</h3><p>BMI</p>'
         switch (obesity) {
             case '過輕':
                 result.setAttribute('style', 'color:#31BAF9; border: 4px solid #31BAF9; display: block;');
@@ -132,6 +135,7 @@ $(window).load(function(){
                 break;
         }
         result_content.innerHTML = str;
+        result_obesity.textContent = obesity;
     }
     
     //重新整理

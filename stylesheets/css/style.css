@@ -112,6 +112,24 @@ table {
   .ver-reset:hover {
     opacity: 0.8; }
 
+.lev1 {
+  background: #31BAF9; }
+
+.lev2 {
+  background: #86D73F; }
+
+.lev3 {
+  background: #FF982D; }
+
+.lev4 {
+  background: #FF6C03; }
+
+.lev5 {
+  background: #FF6C03; }
+
+.lev6 {
+  background: #FF1200; }
+
 #header {
   background: #424242;
   height: 300px; }
@@ -181,9 +199,10 @@ table {
       align-content: center;
       cursor: pointer; }
     #header .result h1 {
-      right: -125%;
-      position: absolute;
-      top: 10%; }
+      width: 200px;
+      -webkit-transform: translate(66%, 72%);
+      -ms-transform: translate(66%, 72%);
+      transform: translate(66%, 72%); }
 
 .content {
   background: #f5f5f5; }
@@ -200,13 +219,13 @@ table {
     justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    margin-bottom: 16px; }
     .content .bmi_content .data_item .status {
       font-size: 20px; }
     .content .bmi_content .data_item .bmi_color {
       height: 100%;
       width: 4px;
-      background: #86D73F;
       -webkit-box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29);
       box-shadow: 2px 0 3px 0 rgba(134, 215, 63, 0.29); }
     .content .bmi_content .data_item h5, .content .bmi_content .data_item .date {
