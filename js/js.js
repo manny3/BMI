@@ -145,8 +145,10 @@ $(window).load(function(){
     }
     
     //清除localStorage資料
+    clearlist.addEventListener('click', deleteList ,false);
+
     function deleteList() {
-        localStorage.removeItem('BMIlist');
+        localStorage.removeItem('BMI_list');
         totalresult =[];
         updatelist(totalresult);
     }
